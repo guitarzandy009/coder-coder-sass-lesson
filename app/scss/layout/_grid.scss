@@ -1,3 +1,6 @@
+@use '../util/' as u;
+
+
 .grid {
 
     display: grid;
@@ -9,7 +12,7 @@
     margin-inline: auto;
 
 
-    @media (min-width: 900px) {
+    @include u.breakpoint(large) {
         grid-template-columns: 2fr 1fr;
         grid-template-rows: auto;
     }
@@ -26,5 +29,10 @@
 
     &__sidebar {
         background-color: hsl(300, 100%, 30%);
+        
+        @include u.breakpoint-down(medium) {
+            text-align: center;
+        }
+
     }
 }
